@@ -47,6 +47,10 @@ async.waterfall([
         // Handle preflight requests for all routes
         app.options('*', cors());
 
+        // Health check endpoint
+        app.get('/health', (req, res) => {
+            res.status(200).send('OK');
+        });
 
 
 		app.use(cookieParser())
@@ -61,6 +65,9 @@ async.waterfall([
                 errorConstant.BAD_URL);
             res.end();
         });  
+        // Log the port the app will listen on
+        const listenPort = app.get('port');
+        console.log('App will listen on port:', listenPort);
         callback(null, true);
 		 }
 ], function(error, response) {
