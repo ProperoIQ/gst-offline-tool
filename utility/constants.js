@@ -82,4 +82,4 @@ exports.BASE64_TEXT_REPLACE_B64 =";base64,"
 exports.REDIS_CONNECTION_STATUS;
 exports.B2CL_MIN_VAL = 100000;
 exports.B2CL_MIN_VAL_STR_PRD = "082024";
-exports.NODE_PORT = 3010 ;
+exports.NODE_PORT = 8080 ;
