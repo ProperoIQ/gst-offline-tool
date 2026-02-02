@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+logs
+*.log
+*.txt
+*.exe
+*.bat
+*.msi
+*.hta
+*.dat
+.git
+.DS_Store
+temp_uploads
+uploads
+generated_gstr1.json
