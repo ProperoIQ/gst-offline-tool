@@ -1133,10 +1133,12 @@ function fixPOS(data, type) {
             if (data[i].sply_ty && data[i].sply_ty.name) {
                 data[i].sply_ty = data[i].sply_ty.name;
             }
-            if (data[i].sply_ty.toLowerCase() == 'inter-state') {
-                data[i].sply_ty = 'INTER';
-            } else if (data[i].sply_ty.toLowerCase() == 'intra-state') {
-                data[i].sply_ty = 'INTRA';
+            if (data[i].sply_ty) {
+                if (data[i].sply_ty.toLowerCase() == 'inter-state') {
+                    data[i].sply_ty = 'INTER';
+                } else if (data[i].sply_ty.toLowerCase() == 'intra-state') {
+                    data[i].sply_ty = 'INTRA';
+                }
             }
             if (data[i].iamt) data[i].iamt = parseFloat(data[i].iamt);
             if (data[i].csamt) data[i].csamt = parseFloat(data[i].csamt);
@@ -5489,7 +5491,6 @@ var generateFile = function (req, res) {
 
                                     if (err) {
                                         // something went wrong, file probably not written.
-                                        // callback(err); // callback is not defined here!
                                         logger.log("error", "Error writing file: " + err);
                                         return;
                                     }
